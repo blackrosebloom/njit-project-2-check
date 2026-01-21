@@ -2,11 +2,13 @@ let mCurrentIndex = 0 // Tracks the current image index
 let mImages = [] // Array to hold GalleryImage objects
 const mUrl = 'images.json' // Replace with actual JSON URL
 const mWaitTime = 5000 // Timer interval in milliseconds
-
+let mTimer = null
 $(document).ready(() => {
   $('.details').hide() 
 
-  startSlideshow()
+   function startSlideshow() {
+  
+   }
 
 $('.moreIndicator').on('click', function() {
   $(this).toggleClass('rot90 rot270')
@@ -30,7 +32,7 @@ function fetchJSON () {
   $.ajax({
 url:mUrl,
 method:'GET',
-datatype: 'json',
+dataType: 'json',
 success: function(data){
 
 mImages = []
@@ -67,7 +69,7 @@ function showNextPhoto () {
  
 mCurrentIndex++
 
-if (mCurrebtIndex >= mImages.length){
+if (mCurrentIndex >= mImages.length){
 mCurrentIndex = 0
 
 }
